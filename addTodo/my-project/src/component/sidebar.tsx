@@ -1,9 +1,7 @@
 import { Outlet } from "react-router-dom";
-
 export default function Sidebar() {
   return (
     <div className="flex h-screen">
-      {/* Sidebar Content */}
       <div className="w-72 bg-white shadow-md p-4 flex flex-col justify-between border-r">
         {/* Top Section */}
         <div>
