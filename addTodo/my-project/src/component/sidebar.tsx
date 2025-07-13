@@ -7,7 +7,7 @@ export default function Sidebar() {
         <div>
           <h2 className="text-xl font-bold mb-4">Menu</h2>
 
-          {/* Search */}
+     
           <input
             type="text"
             placeholder="Search"
