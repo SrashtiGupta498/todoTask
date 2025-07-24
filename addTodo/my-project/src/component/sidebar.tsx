@@ -1,25 +1,4 @@
-import { Outlet, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
-import type { RootState } from "../store";
-import Layout from "../component/Layout.tsx";
-import { useState , useEffect } from "react";
-
-import {Calendar,
-  CheckCircle,
-  Home,
-  StickyNote,
-  List,
-} from "lucide-react";
-
-interface TaskType {
-  task: string;
-  description: string;
-  list: string[];
-  date: string;
-  tags: string[];
-  subtasks: string[];
-}
-
+import { Outlet } from "react-router-dom";
 export default function Sidebar() {
 
     const [darkMode, setDarkMode] = useState(() => {
@@ -51,35 +30,25 @@ export default function Sidebar() {
   ).length;
 
   return (
-    <Layout>
-    <div className="flex h-screen bg-pink-50">
-    {/* <div className="flex h-screen bg-pink-50 dark:bg-black text-black dark:text-white"> */}
-      {/* Sidebar */}
-    {/* <aside className="w-72 bg-white dark:bg-darkbg shadow-md p-6 flex flex-col justify-between border-r-2 border dark:border-gray-700"> */}
-
-{/* <aside className="w-72 bg-white dark:bg-black text-black dark:text-white shadow-md p-6 border-r border-gray-200 dark:border-gray-700"> */}
-<aside className="w-72 bg-white dark:bg-black text-black dark:text-white shadow-md p-6 border-r border-gray-200 dark:border-gray-700 flex flex-col justify-between h-full">
+    <div className="flex h-screen">
+      <div className="w-72 bg-white shadow-md p-4 flex flex-col justify-between border-r">
+        {/* Top Section */}
         <div>
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">
-            TaskBoard
-          </h2>
- {/* 📋 */}
-          {/* Task Section */}
-          <section className="mb-8">
-            <h3 className="text-xs font-semibold text-gray-400 uppercase  rounded-lg tracking-wider mb-3">
-              Tasks
-            </h3>
-            <ul className="space-y-3">
-              <li
-                className={`flex justify-between items-center  px-3 py-2 rounded-lg cursor-pointer ${
-                     location.pathname === "/upcoming"
-                    ? "bg-amber-600 "
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-                onClick={() => navigate("/upcoming")}
-              >
-                <span className="flex items-center gap-2">
-                  <Calendar size={16} />
+          <h2 className="text-xl font-bold mb-4">Menu</h2>
+
+     
+          <input
+            type="text"
+            placeholder="Search"
+            className="w-full px-3 py-2 mb-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+          />
+
+          {/* Tasks */}
+          <div className="mb-6">
+            <p className="text-xs font-semibold text-gray-500 uppercase mb-2">Tasks</p>
+            <ul className="space-y-2">
+              <li className="flex justify-between items-center text-gray-700 hover:text-black cursor-pointer">
+                <span className="flex items-center space-x-2">
                   <span className="text-sm">Upcoming</span>
                 </span>
                 <span className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">
